@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 
 // MATERIAL UI!!!
-import { 
+import {
     CommunicationCall,
     CommunicationChatBubble,
     CommunicationEmail,
@@ -13,7 +13,7 @@ import {
 
 import {
     List, ListItem
-} from 'material-ui/List';
+} from 'material-ui/list';
 
 
 // Styles

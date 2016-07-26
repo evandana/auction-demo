@@ -15,6 +15,9 @@ import './_appPage.scss'
 
 export default function AppPage({ children }) {
 
+    // console.log('MuiThemeProvider', MuiThemeProvider);
+    // debugger;
+
     return (
         <MuiThemeProvider>
             <div>

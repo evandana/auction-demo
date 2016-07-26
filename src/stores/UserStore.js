@@ -77,6 +77,9 @@ UserStore = assign({}, EventEmitter.prototype, {rwAdapter: rw}, {
     storeNewUser (userData) {
         return new Promise( (resolve, reject) => {
             // Google users
+
+            debugger;
+
             if (userData.auth && userData.auth.provider === 'google') {
                 let user = {
                     uid: userData.uid,

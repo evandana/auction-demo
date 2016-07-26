@@ -1,10 +1,10 @@
-import Firebase from 'firebase';
+import firebase from 'firebase';
 
 let Adapter = function Adapter () {
 
-    var firebase = require("firebase/app");
-    require("firebase/auth");
-    require("firebase/database");
+    // var firebase = require("firebase/app");
+    // require("firebase/auth");
+    // require("firebase/database");
 
     // Initialize Firebase
     var config = {
@@ -13,8 +13,12 @@ let Adapter = function Adapter () {
         databaseURL: "https://auction-demo.firebaseio.com",
         storageBucket: "",
     };
-    let db = firebase.initializeApp(config);
+    let firebaseRef = firebase.initializeApp(config);
+    let db = firebaseRef.database();
 
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/userinfo.email'); //    View your email address
+    // firebase.auth().signInWithRedirect(provider);
 
     let auctionsRef = db.ref("auctions"),
         usersRef = db.ref("users"),
@@ -41,8 +45,46 @@ let Adapter = function Adapter () {
             });
         },
 
+        signInWithRedirect () {
+            firebaseRef.auth().signInWithRedirect(provider);
+            // console.log('signInWithRedirect')
+        },
+
         authCheck (callback) {
-            ref.onAuth(callback);
+            let self = this;
+
+            firebase.auth().getRedirectResult().then(function(result) {
+              if (result.credential) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // ...
+              } else {
+                self.signInWithRedirect();
+              }
+              // The signed-in user info.
+              var user = result.user;
+
+              // console.log('result', result);
+              // debugger;
+
+              //
+              callback( user );
+
+
+            }).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // The email of the user's account used.
+              var email = error.email;
+              // The firebase.auth.AuthCredential type that was used.
+              var credential = error.credential;
+              // ...
+
+              // console.log('error', error);
+              // debugger;
+
+            });
         },
 
         getAllUsers () {
@@ -74,7 +116,7 @@ let Adapter = function Adapter () {
         updateConfig (callback) {
             configRef.on('child_changed', (childSnapshot, prevChildKey) => {
                 let updatedConfigProp = {};
-                updatedConfigProp[childSnapshot.key()] = childSnapshot.val();
+                updatedConfigProp[childsnapshot.key] = childSnapshot.val();
                 callback(updatedConfigProp)
             });
         },
@@ -86,7 +128,7 @@ let Adapter = function Adapter () {
         loadAuctions (callback) {
             auctionsRef.on("child_added", (snapshot) => {
                 let auction = snapshot.val();
-                auction.id = snapshot.key();
+                auction.id = snapshot.key;
                 callback(auction);
             });
         },
@@ -94,7 +136,7 @@ let Adapter = function Adapter () {
         updateAuctions (callback) {
             auctionsRef.on("child_changed", (snapshot) => {
                 let auction = snapshot.val();
-                auction.id = snapshot.key();
+                auction.id = snapshot.key;
                 callback(auction);
             });
         },
@@ -123,22 +165,28 @@ let Adapter = function Adapter () {
         },
 
         loginGoogle (successCallback, failCallback) {
-            return ref.authWithOAuthRedirect("google", function(error, authData) {
-                if (error) {
-                    // console.log("Login Failed!", error);
-                    return failCallback(error);
-                } else {
-                    // We'll never get here, as the page will redirect on success.
-                    // console.log("Authenticated successfully with payload:", authData);
-                    return successCallback(authData);
-                }
-            }, {
-                scope: "email"
-            });
+            this.signInWithRedirect();
+            // return ref.authWithOAuthRedirect("google", function(error, authData) {
+            //     if (error) {
+            //         // console.log("Login Failed!", error);
+            //         return failCallback(error);
+            //     } else {
+            //         // We'll never get here, as the page will redirect on success.
+            //         // console.log("Authenticated successfully with payload:", authData);
+            //         return successCallback(authData);
+            //     }
+            // }, {
+            //     scope: "email"
+            // });
         },
 
         logoutUser () {
-            ref.unauth();
+            firebase.auth().signOut()
+            //  .then(function() {
+            // Sign-out successful.
+            // }, function(error) {
+            //   // An error happened.
+            // });
             // document.location.reload(true);
         }
 

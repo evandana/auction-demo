@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Router, RouteHandler, Link, hashHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { 
+import {
     AppBar, Tabs, Tab, Drawer, MenuItem, IconButton,
     NavigationClose, NavigationMenu
     } from 'material-ui'
@@ -163,7 +163,6 @@ class Header extends Component {
         let tabs = this.getTabsBasedOnUser();
 
         let greeting = "Welcome, " + this.props.user.name;
-
 
         return (
             <header>

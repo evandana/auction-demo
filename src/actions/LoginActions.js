@@ -162,11 +162,12 @@ function getUidFromAuth (authData) {
 function storeNewUser (userData, users){
     return new Promise((resolve, reject) => {
         // Google users
-        if (userData.auth && userData.auth.provider === 'google') {
+
+        if (userData && userData.providerId === 'firebase') {
             let user = {
                 uid: userData.uid,
-                email: userData.google.email,
-                name: userData.google.displayName,
+                email: userData.email,
+                name: userData.displayName,
                 permissionLevel: 'GUEST',
                 persona: generateUserPersona(users)
             }

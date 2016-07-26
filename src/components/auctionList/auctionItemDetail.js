@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import { placeBid } from '../../actions/AuctionActions'
 
 // Material UI
-import { 
-	Avatar, 
+import {
+	Avatar,
 	colors,
 	Card,
 	CardActions,
@@ -22,10 +22,10 @@ import {
 
 import { cyan200 } from 'material-ui/styles/colors';
 
-import { 
+import {
 	ActionAddShoppingCart,
-	ContentClear 
-	} from 'material-ui/svg-icons'
+	ContentClear
+	} from 'material-ui/svg-icons';
 
 
 import { getImageForEnv } from '../../images/index'
@@ -163,6 +163,7 @@ class AuctionItemDetail extends Component {
 			}}
 		  />,
 		];
+
 
 		return (
 			<div className="auction-item-detail">
