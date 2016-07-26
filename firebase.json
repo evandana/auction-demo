@@ -1,0 +1,9 @@
+{
+  "firebase": "auction-demo",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
