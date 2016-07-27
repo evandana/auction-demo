@@ -2,30 +2,24 @@ import firebase from 'firebase';
 
 let Adapter = function Adapter () {
 
-    // var firebase = require("firebase/app");
-    // require("firebase/auth");
-    // require("firebase/database");
+// Initialize Firebase
+let config = {
+    apiKey: "AIzaSyAl1J9f8chjKFPUV11WXp3ccWKDmp2vx-g",
+    authDomain: "auction-demo.firebaseapp.com",
+    databaseURL: "https://auction-demo.firebaseio.com",
+    storageBucket: "",
+};
+let firebaseRef = firebase.initializeApp(config),
+    db = firebaseRef.database();
 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAl1J9f8chjKFPUV11WXp3ccWKDmp2vx-g",
-        authDomain: "auction-demo.firebaseapp.com",
-        databaseURL: "https://auction-demo.firebaseio.com",
-        storageBucket: "",
-    };
-    let firebaseRef = firebase.initializeApp(config);
-    let db = firebaseRef.database();
+let provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/userinfo.email'); //    View your email address
 
-    var provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/userinfo.email'); //    View your email address
-    // firebase.auth().signInWithRedirect(provider);
-
-    let auctionsRef = db.ref("auctions"),
-        usersRef = db.ref("users"),
-        configRef = db.ref("CONFIG");
+let auctionsRef = db.ref("auctions"),
+    usersRef = db.ref("users"),
+    configRef = db.ref("CONFIG");
 
     return {
-
 
         addNewUser (uid, userObj) {
 
