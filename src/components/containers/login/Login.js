@@ -20,9 +20,9 @@ const Login = React.createClass({
             <div className="login-page pure-form pure-form-aligned">
                 <fieldset>
                     <div className="pure-controls">
-                        <h1>Welcome to the Happiness Exchange</h1>
+                        <h1>Welcome to the Demo Auction App</h1>
                         <p>Login with a Google account to view the auctions!</p>
-                        <p>RSVP to the <a href="https://www.facebook.com/events/198978703805744/">event</a></p>
+                        <p>This is a simplified version of the app, using light-hearted dummy data.</p>
                         <button
                             className="login-button pure-button pure-button-primary"
                             onClick={this.requestLoginGoogle}>

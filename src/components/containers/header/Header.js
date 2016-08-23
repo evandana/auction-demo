@@ -28,32 +28,33 @@ class Header extends Component {
                     label: "Donate",
                     id: "donate",
                     route: "/donate"
-                },
-                {
-                    label: "Sponsors",
-                    id: "sponsors",
-                    route: "/sponsors"
-                },
-                {
-                    label: "Winners",
-                    id: "confirmWinners",
-                    route: "/auctions/confirmWinners"
-                },
-                {
-                    label: "Add Auction",
-                    id: "addAuction",
-                    route: "/auctions/add"
-                },
-                {
-                    label: "Results",
-                    id: "results",
-                    route: "/results"
-                },
-                {
-                    label: "Donors",
-                    id: "donors",
-                    route: "/donors"
-                }
+                }//,
+                // hiding from demo
+                // {
+                //     label: "Sponsors",
+                //     id: "sponsors",
+                //     route: "/sponsors"
+                // },
+                // {
+                //     label: "Winners",
+                //     id: "confirmWinners",
+                //     route: "/auctions/confirmWinners"
+                // },
+                // {
+                //     label: "Add Auction",
+                //     id: "addAuction",
+                //     route: "/auctions/add"
+                // },
+                // {
+                //     label: "Results",
+                //     id: "results",
+                //     route: "/results"
+                // },
+                // {
+                //     label: "Donors",
+                //     id: "donors",
+                //     route: "/donors"
+                // }
                 //,
                 // {
                 //     label: "Login",

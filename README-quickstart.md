@@ -12,4 +12,6 @@
 
 *build*  `npm run build`
 
-*serve*  `npm run serve`
+*local serve*  `npm run serve`
+
+*firebase deploy* `firebase deploy`

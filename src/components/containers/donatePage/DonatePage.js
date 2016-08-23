@@ -6,7 +6,7 @@ const DonatePage = ( {prop} ) => {
 
     return (
         <div className="donate-page">
-            <h3>100% of every dollar goes to DFCI</h3>
+            <h3>100% of every dollar helps cure bad code</h3>
             <table>
                 <tbody>
                     <tr>
@@ -14,16 +14,8 @@ const DonatePage = ( {prop} ) => {
                         <td>No processing fees</td>
                     </tr>
                     <tr>
-                        <td>Venmo (preferred)</td>
-                        <td><a href="http://www.venmo.com/EvanDana">www.venmo.com/EvanDana</a></td>
-                    </tr>
-                    <tr>
-                        <td>PMC Pages</td>
-                        <td>
-                            Tax-deductable <br/>
-                            <a href="http://profile.pmc.org/ed0074">Evan's page</a> <br/>
-                            <a href="http://profile.pmc.org/cl0214">Courtney's page</a>
-                        </td>
+                        <td>Other method (preferred)</td>
+                        <td><a href="http://google.com" target="_BLANK">Link</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,7 +1,7 @@
 {
-  "name": "webpack-react-websockets-client",
+  "name": "auction-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demo version of the PMC-Auction App",
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=dev npm run dev-serve",
@@ -11,8 +11,8 @@
     "serve": "NODE_ENV=production && npm start",
     "start": "node server"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Evan Dana, Boston, MA",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.0",
@@ -21,6 +21,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "firebase": "^3.3.0",
     "html-webpack-plugin": "^1.7.0",
     "node-sass": "^3.4.2",
     "react-tap-event-plugin": "^0.2.2",
@@ -33,14 +34,13 @@
     "event-emitter": "^0.3.4",
     "express": "^4.13.1",
     "file-loader": "^0.8.5",
-    "firebase": "^3.2.1",
+    "firebase": "^3.3.0",
     "http-proxy": "^1.13.2",
     "immutable": "^3.7.6",
     "isomorphic-fetch": "^2.2.1",
     "json-load": "^1.0.1",
     "json-loader": "^0.5.4",
     "keymirror": "^0.1.1",
-    "material-ui": "0.15.2",
     "material-ui": "^0.15.0-alpha.2",
     "node-sass": "^3.4.2",
     "object-assign": "^4.0.1",
@@ -61,5 +61,20 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evandana/auction-demo.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "charity",
+    "Auction",
+    "Websockets"
+  ],
+  "bugs": {
+    "url": "https://github.com/evandana/auction-demo/issues"
+  },
+  "homepage": "https://github.com/evandana/auction-demo#readme"
 }
